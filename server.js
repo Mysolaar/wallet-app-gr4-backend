@@ -1,4 +1,4 @@
-import { App } from "./App";
+import { App } from "./App.js";
 import mongoose from "mongoose";
 import process from "node:process";
 import * as dotenv from "dotenv";

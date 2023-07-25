@@ -7,6 +7,7 @@
     "start": "cross-env NODE_ENV=production node ./server.js"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "cookie-parser": "~1.4.4",
@@ -28,6 +29,7 @@
     "nanoid": "^4.0.2",
     "nodemailer": "^6.9.3",
     "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
     "swagger-ui-express": "^5.0.0",
     "uuidv4": "^6.2.13"
   },
