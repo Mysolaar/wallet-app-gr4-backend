@@ -1,0 +1,57 @@
+[
+  {
+    "id": "647776974e408b677a2f0050",
+    "name": "Main expenses",
+    "color": "#fed057"
+  },
+  {
+    "id": "647776974e408b677a2f0051",
+    "name": "Products",
+    "color": "#ffd8d0"
+  },
+  {
+    "id": "647776974e408b677a2f0052",
+    "name": "Car",
+    "color": "#fd9498"
+  },
+  {
+    "id": "647776974e408b677a2f0053",
+    "name": "Self care",
+    "color": "#c5baff"
+  },
+  {
+    "id": "647776974e408b677a2f0054",
+    "name": "Child care",
+    "color": "#6e78e8"
+  },
+  {
+    "id": "647776974e408b677a2f0055",
+    "name": "Household products",
+    "color": "#4a56e2"
+  },
+  {
+    "id": "647776974e408b677a2f0056",
+    "name": "Education",
+    "color": "#81e1ff"
+  },
+  {
+    "id": "647776974e408b677a2f0057",
+    "name": "Leisure",
+    "color": "#24cca7"
+  },
+  {
+    "id": "647776974e408b677a2f0058",
+    "name": "Other expenses",
+    "color": "#00ad84"
+  },
+  {
+    "id": "647776974e408b677a2f0059",
+    "name": "Entertainment",
+    "color": "#FFAE81"
+  },
+  {
+    "id": "647776974e408b677a2f005a",
+    "name": "Income",
+    "color": " #24cca7"
+  }
+]
