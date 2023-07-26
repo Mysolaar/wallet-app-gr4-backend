@@ -17,3 +17,14 @@ export const updateUser = (userId, body) => {
 export const removeUser = (userId) => {
   return User.findByIdAndRemove({ _id: userId });
 };
+
+export const updateUserBalance = (userId, value) => {
+  return User.findByIdAndUpdate(
+    { _id: userId },
+    { balance: value },
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+};
