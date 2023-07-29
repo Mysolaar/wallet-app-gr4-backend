@@ -7,6 +7,7 @@ import * as dotenv from "dotenv";
 import passportConfig from "./middlewares/passport.js";
 import { usersRouter } from "./routes/api/users/users.js";
 import { transactionsRouter } from "./routes/api/transactions/transactions.js";
+import { summaryRouter } from "./routes/api/transactions/summary.js";
 dotenv.config();
 
 export const App = express();
@@ -18,6 +19,7 @@ App.use(express.static(path.join(process.cwd(), "public")));
 passportConfig;
 App.use("/api/users", usersRouter);
 App.use("/api/transactions", transactionsRouter);
+App.use("/api", summaryRouter);
 
 App.use((req, res) => {
   res.status(404).json({
