@@ -42,11 +42,13 @@ export const addTransaction = ({
   comment,
   owner,
 }) => {
+  const transactionDateShort = transactionDate.slice(3, 10);
   return Transaction.create({
     typeOfTransaction,
     categoryId,
     amountOfTransaction,
     transactionDate,
+    transactionDateShort,
     comment,
     owner,
   });
@@ -60,4 +62,12 @@ export const updateTransaction = (transactionId, body) => {
 
 export const removeTransaction = (transactionId) => {
   return Transaction.findByIdAndRemove({ _id: transactionId });
+};
+
+export const findTransactionsByTypeAndDate = (date, type, userId) => {
+  return Transaction.find({
+    transactionDateShort: date,
+    typeOfTransaction: type,
+    owner: userId,
+  });
 };
