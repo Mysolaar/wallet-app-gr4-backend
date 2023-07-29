@@ -1,11 +1,16 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
-const dateNow = new Date().toString();
+const dateNow = new Date().toISOString();
+const dateShort = dateNow.slice(4, 7) + dateNow.slice(11, 15);
 export const transaction = new Schema(
   {
     transactionDate: {
       type: String,
       default: dateNow,
+    },
+    transactionDateShort: {
+      type: String,
+      default: dateShort,
     },
     typeOfTransaction: {
       type: String,

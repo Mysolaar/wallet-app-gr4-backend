@@ -1,5 +1,6 @@
 import {
   addTransaction,
+  countTransaction,
   getTransactionById,
   listTransactions,
   removeTransaction,
@@ -154,12 +155,18 @@ export const remove = async (req, res, next) => {
   }
 };
 export const get = async (req, res, next) => {
+  const { page, limit = 7 } = req.query;
   const { id, balance } = req.user;
   try {
     const transactions = await listTransactions(req.query, id);
+    const countTransactions = await countTransaction(id);
     res.json({
       status: "success",
       code: 200,
+      countTransactions,
+      totalPages: Math.ceil(countTransactions / limit),
+      currentPage: page,
+      limit,
       data: { balance, userId: id, transactions },
     });
   } catch (e) {
