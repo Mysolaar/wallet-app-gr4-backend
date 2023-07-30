@@ -6,9 +6,10 @@ import {
 
 export const monthlyBalance = async (req, res, next) => {
   const dateNow = new Date().toISOString();
-  const { date = dateNow } = req.query;
+  const { date } = req.query;
   const { id } = req.user;
-  const slicedDate = date.slice(5, 8) + date.slice(0, 4);
+  const slicedDate = !date ? dateNow.slice(5, 8) + dateNow.slice(0, 4) : date;
+
   try {
     const incomeTransactions = await findTransactionsByTypeAndDate(
       slicedDate,
@@ -54,6 +55,10 @@ export const monthlyBalance = async (req, res, next) => {
       categoryIdValues.push(valueByCategory);
     }
 
+    const categoryNames = expenseTransactions
+      .map((transaction) => transaction.category)
+      .filter((category, index, array) => array.indexOf(category) === index);
+
     res.json({
       status: "success",
       code: 200,
@@ -62,6 +67,7 @@ export const monthlyBalance = async (req, res, next) => {
         expenseValue,
         balanceForMonth,
         usedCategoryIds,
+        categoryNames,
         categoryIdValues,
       },
     });
