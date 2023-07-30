@@ -46,6 +46,7 @@ export const add = async (req, res, next) => {
     const newTransaction = await addTransaction({
       typeOfTransaction,
       categoryId,
+      category,
       amountOfTransaction,
       transactionDate,
       comment,
@@ -98,6 +99,7 @@ export const edit = async (req, res, next) => {
     const updatedTransaction = await updateTransaction(transactionId, {
       typeOfTransaction,
       categoryId,
+      category,
       amountOfTransaction,
       transactionDate,
       comment,

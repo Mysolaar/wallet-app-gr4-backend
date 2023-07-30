@@ -20,6 +20,9 @@ export const transaction = new Schema(
     categoryId: {
       type: String,
     },
+    category: {
+      type: String,
+    },
     comment: {
       type: String,
       default: "",
