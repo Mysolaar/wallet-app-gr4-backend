@@ -37,6 +37,7 @@ export const getTransactionById = (transactionId) => {
 export const addTransaction = ({
   typeOfTransaction,
   categoryId,
+  category,
   amountOfTransaction,
   transactionDate,
   comment,
@@ -46,6 +47,7 @@ export const addTransaction = ({
   return Transaction.create({
     typeOfTransaction,
     categoryId,
+    category,
     amountOfTransaction,
     transactionDate,
     transactionDateShort,
