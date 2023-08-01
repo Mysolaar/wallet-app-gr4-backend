@@ -61,7 +61,6 @@ App.use((req, res) => {
   });
 });
 
-// eslint-disable-next-line no-unused-vars
 App.use((err, req, res, next) => {
   res.status(500).json({
     status: "fail",

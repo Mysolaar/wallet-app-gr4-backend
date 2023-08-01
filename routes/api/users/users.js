@@ -33,27 +33,31 @@
  *         balance:
  *           type: number
  *           description: User's balance
- * 
+ *
  *       example:
  *         _id: 64bfd99332de0ddca4aff25d
-           email: matisiciarz@gmail.com
-
-           username: User
-           token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YzU3ZWJlMjhlYzczN2EzZTUxMzhkZSIsImlhdCI6MTY5MDgyMjA0MSwiZXhwIjoxNjkwOTA4NDQxfQ.3Uocm1qZZsEkKTtkhTeSaTzHaHhG-zplP_wespfVbvQ
-           verify: true
-           verificationToken: null
-           balance: 1000
-           password: $2a$06$4K61sSXMytigCJF.HOqf/.J3TNyosdqoX3Nrxbl3huGVPUMpA0Buu
-           createdAt: 2023-07-25T14:17:55.340+00:00
-           updatedAt: 2023-07-31T17:22:32.880+00:00
+ *         email: matisiciarz@gmail.com
+ *         username: Mati
+ *         token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YzU3ZWJlMjhlYzczN2EzZTUxMzhkZSIsImlhdCI6MTY5MDgyMjA0MSwiZXhwIjoxNjkwOTA4NDQxfQ.3Uocm1qZZsEkKTtkhTeSaTzHaHhG-zplP_wespfVbvQ
+ *         verify: true
+ *         verificationToken: null
+ *         balance: 1000
+ *         password: $2a$06$4K61sSXMytigCJF.HOqf/.J3TNyosdqoX3Nrxbl3huGVPUMpA0Buu
+ *         createdAt: 2023-07-25T14:17:55.340+00:00
+ *         updatedAt: 2023-07-31T17:22:32.880+00:00
  */
 
 /**
  * @swagger
  * tags:
- *   name: User
+ * - name: User
  *   description: The users managing API
- * /users/current:
+ * - name: Transactions
+ *   description: The transactions managing API
+ * - name: Summary
+ *   description: The summary managing API
+ * paths:
+ *   /users/current:
  *   get:
  *     summary: Shows current user
  *     tags: [User]
@@ -73,14 +77,14 @@
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Book'
+ *             $ref: '#/components/schemas/User'
  *     responses:
- *       200:
- *         description: The created book.
+ *       201:
+ *         description: Registration successful! Verification e-mail has just been sent, please verify your e-mail.
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Book'
+ *               $ref: '#/components/schemas/User'
  *       500:
  *         description: Some server error
  * /books/{id}:
