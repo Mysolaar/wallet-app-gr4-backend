@@ -8,7 +8,9 @@ export const monthlyBalance = async (req, res, next) => {
   const dateNow = new Date().toISOString();
   const { date } = req.query;
   const { id } = req.user;
-  const slicedDate = !date ? dateNow.slice(5, 8) + dateNow.slice(0, 4) : date;
+  const slicedDate = !date
+    ? dateNow.slice(5, 7) + "." + dateNow.slice(0, 4)
+    : date;
 
   try {
     const incomeTransactions = await findTransactionsByTypeAndDate(
