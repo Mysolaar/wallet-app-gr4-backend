@@ -28,7 +28,7 @@ export const transaction = new Schema(
       default: "",
     },
     amountOfTransaction: {
-      type: Number,
+      type: String,
       default: 0,
     },
     owner: {
