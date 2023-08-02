@@ -74,9 +74,11 @@ export const edit = async (req, res, next) => {
   } = req.body;
   try {
     const { balance } = req.user;
-    const income = balance + amountOfTransaction;
+    const prevTransaction = await getTransactionById(transactionId);
+    const prevTransactionAmount = prevTransaction?.amountOfTransaction;
+    const income = balance + amountOfTransaction - prevTransactionAmount;
     const newBalanceIncome = Number(income);
-    const expense = balance - amountOfTransaction;
+    const expense = balance - amountOfTransaction + prevTransactionAmount;
     const newBalanceExpense = Number(expense);
     const newBalance =
       typeOfTransaction === "Income" ? newBalanceIncome : newBalanceExpense;
@@ -108,7 +110,7 @@ export const edit = async (req, res, next) => {
       res.json({
         status: "success",
         code: 200,
-        data: { updatedTransaction, updatedBalance },
+        data: { updatedTransaction, updatedBalance, prevTransactionAmount },
       });
     } else {
       res.status(404).json({
