@@ -13,7 +13,7 @@ export const add = async (req, res, next) => {
   const {
     typeOfTransaction,
     category = "Income",
-    amountOfTransaction,
+    amountOfTransaction = Number(amountOfTransaction),
     transactionDate,
     comment,
   } = req.body;
@@ -21,9 +21,9 @@ export const add = async (req, res, next) => {
     return res.status(400).json({ status: "error", message: "missing field" });
   try {
     const { balance } = req.user;
-    const income = balance + Number(amountOfTransaction);
+    const income = balance + amountOfTransaction;
     const newBalanceIncome = Number(income);
-    const expense = balance - Number(amountOfTransaction);
+    const expense = balance - amountOfTransaction;
     const newBalanceExpense = Number(expense);
     const newBalance =
       typeOfTransaction === "Income" ? newBalanceIncome : newBalanceExpense;
@@ -74,9 +74,9 @@ export const edit = async (req, res, next) => {
   } = req.body;
   try {
     const { balance } = req.user;
-    const income = balance + Number(amountOfTransaction);
+    const income = balance + amountOfTransaction;
     const newBalanceIncome = Number(income);
-    const expense = balance - Number(amountOfTransaction);
+    const expense = balance - amountOfTransaction;
     const newBalanceExpense = Number(expense);
     const newBalance =
       typeOfTransaction === "Income" ? newBalanceIncome : newBalanceExpense;
