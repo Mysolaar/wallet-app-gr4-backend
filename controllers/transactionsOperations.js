@@ -84,6 +84,7 @@ export const edit = async (req, res, next) => {
       typeOfTransaction === "Income" ? newBalanceIncome : newBalanceExpense;
     const updatedUser = await updateUserBalance(req.user.id, newBalance);
     const updatedBalance = Number(updatedUser.balance);
+    const transactionDateShort = transactionDate.slice(3, 10);
     if (typeOfTransaction === "Income" && category !== "Income")
       return res.status(400).json({
         status: "error",
@@ -104,6 +105,7 @@ export const edit = async (req, res, next) => {
       category,
       amountOfTransaction,
       transactionDate,
+      transactionDateShort,
       comment,
     });
     if (updatedTransaction) {
