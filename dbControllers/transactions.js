@@ -1,7 +1,7 @@
 import { Transaction } from "../models/transactions.js";
 
 export const listTransactions = async (query, userId) => {
-  const { page, limit } = query;
+  const { page, limit = 7 } = query;
   return Transaction.find({ owner: userId })
     .limit(limit * 1)
     .skip((page - 1) * limit)
